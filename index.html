@@ -6,16 +6,21 @@
   <title>Cherry Creek Elders Quorum Lessons</title>
   <style>
     :root {
-      --bg: #f7f5f2;
+      --bg: #f5f3ef;
       --card: #ffffff;
       --text: #1f2937;
       --muted: #6b7280;
       --border: #e5e7eb;
-      --accent: #1f3a5f;
-      --accent-light: #eaf0f7;
+      --accent: #17375e;
+      --accent-2: #eef4fb;
+      --accent-3: #f7fafc;
+      --gold: #8a6b2f;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -25,16 +30,20 @@
       line-height: 1.6;
     }
 
+    a { color: var(--accent); }
+
     header {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
     }
 
     .container {
-      max-width: 1100px;
+      width: 100%;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -43,167 +52,270 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding: 18px 0;
+      gap: 18px;
+      padding: 16px 0;
       flex-wrap: wrap;
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      margin: 0 0 6px;
       font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--muted);
-      margin: 0 0 6px 0;
+      font-weight: 700;
     }
 
     h1, h2, h3, h4 { margin: 0; }
 
     h1 {
       font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     nav a {
-      color: var(--accent);
       text-decoration: none;
-      margin-left: 16px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: var(--accent);
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
 
-    main {
-      padding: 40px 0 60px;
-    }
+    main { padding: 34px 0 70px; }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      margin-bottom: 40px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 26px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 24px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      box-shadow: var(--shadow);
     }
 
     .hero h2 {
       font-size: 2.2rem;
-      line-height: 1.2;
-      margin-bottom: 16px;
+      line-height: 1.15;
+      margin-bottom: 14px;
     }
 
-    .hero p {
-      color: var(--text);
-      font-size: 1.05rem;
+    .hero p { margin: 0 0 12px; }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
     }
 
     .section-title {
-      margin: 12px 0 20px;
-      font-size: 1.9rem;
+      font-size: 1.95rem;
+      margin-top: 6px;
     }
 
     .section-note {
+      margin: 0;
       color: var(--muted);
-      margin-bottom: 20px;
+      max-width: 760px;
     }
 
-    .lesson-grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .lesson-head {
+    .button-row {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-top: 16px;
     }
 
-    .month {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
-
-    .button {
+    .button, .button-light {
       display: inline-block;
-      background: var(--accent);
-      color: #fff;
       text-decoration: none;
       padding: 10px 16px;
       border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
 
-    .lesson-columns {
+    .button {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .button-light {
+      background: var(--accent-2);
+      color: var(--accent);
+      border: 1px solid #dbe5f2;
+    }
+
+    .grid-3 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      border: 1px solid #dbe5f2;
+      text-decoration: none;
+      font-size: 0.92rem;
+      margin: 0 8px 8px 0;
+    }
+
+    .lesson-index-card {
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-index-card h3 {
+      font-size: 1.1rem;
+      margin: 8px 0 6px;
+    }
+
+    .lesson-index-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .date {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .lesson-section {
+      scroll-margin-top: 95px;
+      margin-top: 24px;
+    }
+
+    .lesson-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .lesson-subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 24px;
       margin-top: 20px;
     }
 
-    ol {
-      padding-left: 20px;
-      margin: 12px 0 0;
+    .inner-card {
+      background: var(--accent-3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
     }
 
-    li {
-      margin-bottom: 8px;
+    .inner-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
     }
 
-    .scriptures {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+    ul, ol { margin: 10px 0 0; padding-left: 20px; }
+    li { margin-bottom: 8px; }
+
+    .quote {
+      border-left: 4px solid var(--gold);
+      padding: 12px 16px;
+      background: #fffaf0;
+      border-radius: 12px;
+      margin: 12px 0;
+      font-style: italic;
     }
 
-    .tag {
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid #d9e3f0;
-      font-size: 14px;
-      text-decoration: none;
+    .tiny-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 8px;
     }
 
-    .topic-grid {
+    .upcoming-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 20px;
+      gap: 14px;
+    }
+
+    .upcoming-item {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .upcoming-item h3 {
+      font-size: 1.08rem;
+      margin: 6px 0;
     }
 
     footer {
-      background: #fff;
       border-top: 1px solid var(--border);
-      padding: 24px 0;
+      background: #fff;
+      padding: 28px 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 0.94rem;
+      margin-top: 40px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .hero,
-      .lesson-columns,
-      .topic-grid {
+      .grid-3,
+      .grid-2,
+      .lesson-layout {
         grid-template-columns: 1fr;
       }
+    }
 
-      nav a {
-        margin: 0 12px 0 0;
-      }
+    @media (max-width: 680px) {
+      h1 { font-size: 1.6rem; }
+      .hero h2 { font-size: 1.8rem; }
+      .section-title { font-size: 1.6rem; }
+      .card { padding: 20px; }
+      nav { gap: 12px; }
     }
   </style>
 </head>
@@ -215,126 +327,796 @@
         <h1>Cherry Creek Elders Quorum Lessons</h1>
       </div>
       <nav>
-        <a href="#overview">Overview</a>
+        <a href="#home">Home</a>
+        <a href="#archive">Archive</a>
         <a href="#lessons">Lessons</a>
-        <a href="#scripture-index">Scripture Index</a>
+        <a href="#upcoming">Upcoming</a>
+        <a href="#mens-group">Men’s Group</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="home">
     <div class="container">
-      <section id="overview" class="hero">
+      <section class="hero">
         <div class="card">
           <p class="eyebrow">Welcome</p>
-          <h2>Cherry Creek Elders Quorum lesson schedule, study resources, and scripture references.</h2>
+          <h2>A home base for lesson schedules, study scriptures, conference talks, and teaching plans.</h2>
           <p>
-            This site provides a simple place to review the current lesson focus, browse the full lesson archive,
-            and study supporting scriptures for quorum discussion and personal preparation.
+            This site is designed to help Cherry Creek Elders Quorum brethren prepare before Sunday, review the assigned general conference talks,
+            study the scriptures connected to each lesson, and revisit the teaching outlines used in quorum discussion.
           </p>
           <p>
-            Lessons are organized by date and title so quorum members can prepare during the week and revisit past messages as needed.
+            Some lessons below already include full teaching notes and scripture packets. A few future lessons are set up as ready placeholders with official talk and video links so the quorum can prepare ahead of time.
           </p>
+          <div class="button-row">
+            <a class="button" href="#featured">Go to Featured Lesson</a>
+            <a class="button-light" href="#archive">Browse Full Archive</a>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>What you will find here</h3>
-          <ul>
-            <li>Current featured lesson</li>
-            <li>Full lesson schedule and archive</li>
-            <li>Scripture study links</li>
-            <li>Conference talk and lesson reference space</li>
-            <li>Future room for notes, handouts, and printable resources</li>
-          </ul>
+        <div class="card" id="featured">
+          <p class="eyebrow">Featured Lesson</p>
+          <h2 style="font-size:1.9rem;">Proved and Strengthened in Christ</h2>
+          <p><strong>March 8, 2026</strong> · President Henry B. Eyring</p>
+          <p>
+            Trials are not evidence that God has forgotten His people. Through Jesus Christ, proving seasons can become strengthening seasons.
+          </p>
+          <div class="button-row">
+            <a class="button" href="#eyring">Open Lesson</a>
+            <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/53eyring?lang=eng" target="_blank">Read Talk</a>
+            <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5030-henry-b-eyring?lang=eng" target="_blank">Watch Video</a>
+          </div>
+          <p class="tiny-note">If the video link changes over time, use the talk page above. The Church typically places the video at the top of the official talk page.</p>
         </div>
       </section>
 
-      <section id="lessons">
-        <p class="eyebrow">Lesson Collection</p>
-        <h2 class="section-title">Current lesson and full archive</h2>
-        <p class="section-note">The featured lesson is shown first, followed by the full Cherry Creek Elders Quorum lesson schedule.</p>
+      <section class="section" id="archive">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Lesson Archive</p>
+            <h2 class="section-title">Full schedule and clickable lesson index</h2>
+          </div>
+          <p class="section-note">Each lesson below links either to a full lesson section on this page or to an upcoming placeholder with the official talk and video.</p>
+        </div>
 
-        <div class="lesson-grid">
-          <article class="card">
-            <div class="lesson-head">
-              <div>
-                <div class="month">Featured Lesson · March 8, 2026</div>
-                <h3>Proved and Strengthened in Christ</h3>
-                <p>Henry B. Eyring</p>
-              </div>
-              <a class="button" href="#scripture-index">Study Scriptures</a>
+        <div class="grid-3">
+          <article class="lesson-index-card">
+            <div class="date">November 9, 2025</div>
+            <h3><a href="#peacemakers">Blessed Are the Peacemakers</a></h3>
+            <p>Gary E. Stevenson</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/12stevenson?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-1030-gary-e-stevenson?lang=eng" target="_blank">Video</a>
             </div>
+          </article>
 
-            <div class="lesson-columns">
-              <div>
-                <h4>Lesson Overview</h4>
+          <article class="lesson-index-card">
+            <div class="date">November 23, 2025</div>
+            <h3><a href="#uchtdorf">Do Your Part with All Your Heart</a></h3>
+            <p>Dieter F. Uchtdorf</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/16uchtdorf?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-1080-dieter-f-uchtdorf?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">December 14, 2025</div>
+            <h3><a href="#barcellos">The Lord Looketh on the Heart</a></h3>
+            <p>Ronald M. Barcellos</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/14barcellos?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-1050-ronald-m-barcellos?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">December 28, 2025</div>
+            <h3><a href="#rasband">The Family Proclamation—Words from God</a></h3>
+            <p>Ronald A. Rasband</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/21rasband?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-2010-ronald-a-rasband?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">January 11, 2026</div>
+            <h3><a href="#jackson">Remembering the Sheep</a></h3>
+            <p>William K. Jackson</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/34jackson?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-3040-william-k-jackson?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">January 25, 2026</div>
+            <h3><a href="#andersen">The Atoning Love of Jesus Christ</a></h3>
+            <p>Neil L. Andersen</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/35andersen?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-3050-neil-l-andersen?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">February 8, 2026</div>
+            <h3><a href="#holland">And Now I See</a></h3>
+            <p>Jeffrey R. Holland</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/41holland?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-4010-jeffrey-r-holland?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">February 22, 2026</div>
+            <h3><a href="#johnson">The Power of Ministering to the One</a></h3>
+            <p>Peter M. Johnson</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/44johnson?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-4040-peter-m-johnson?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">March 8, 2026</div>
+            <h3><a href="#eyring">Proved and Strengthened in Christ</a></h3>
+            <p>Henry B. Eyring</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/53eyring?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5030-henry-b-eyring?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">March 22, 2026</div>
+            <h3><a href="#bednar">They Are Their Own Judges</a></h3>
+            <p>David A. Bednar</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/51bednar?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5010-david-a-bednar?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">April 12, 2026</div>
+            <h3><a href="#renlund">Taking on the Name of Jesus Christ</a></h3>
+            <p>Dale G. Renlund</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/55renlund?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5050-dale-g-renlund?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+
+          <article class="lesson-index-card">
+            <div class="date">April 26, 2026</div>
+            <h3><a href="#oaks">The Family-Centered Gospel of Jesus Christ</a></h3>
+            <p>Dallin H. Oaks</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/58oaks?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5080-dallin-h-oaks?lang=eng" target="_blank">Video</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="lessons">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Lesson Pages</p>
+            <h2 class="section-title">Teaching plans, scriptures, and study resources</h2>
+          </div>
+          <p class="section-note">These sections are designed to be used before, during, or after quorum. Scripture buttons open the official Church scripture pages.</p>
+        </div>
+
+        <article class="card lesson-section" id="uchtdorf">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">November 23, 2025</p>
+              <h2>Do Your Part with All Your Heart</h2>
+              <p class="lesson-subtitle">Dieter F. Uchtdorf · Priesthood circle lesson on spiritual gifts, honesty, engagement, and priesthood action.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/16uchtdorf?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-1080-dieter-f-uchtdorf?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Core Scriptures</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/ot/ps/147?lang=eng" target="_blank">Psalm 147:3</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/22?lang=eng" target="_blank">Luke 22:32</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12?lang=eng" target="_blank">Ether 12:27</a>
+              </div>
+              <div class="inner-card">
+                <h4>Weekly Reflection</h4>
+                <ul>
+                  <li>Counsel with your wife and pray together.</li>
+                  <li>Talk with your children about the hardest part of their week.</li>
+                  <li>Give or request a priesthood blessing.</li>
+                  <li>Minister to one family with prayer, presence, or scripture.</li>
+                  <li>Practice one small technology fast.</li>
+                </ul>
+              </div>
+              <div class="inner-card">
+                <h4>Highlighted Closing</h4>
+                <div class="quote">If we do our part with all our heart, God will do His part with all His power—and He will make more of us than we could ever make of ourselves.</div>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
                 <ol>
-                  <li>God strengthens His people through faithful endurance</li>
-                  <li>Faith often comes before full understanding</li>
-                  <li>Christ is the sure foundation through trial</li>
-                  <li>Disciples are strengthened so they can lift others</li>
-                  <li>Enduring with faith leads to spiritual growth</li>
-                  <li>Trials can refine trust in the Savior</li>
+                  <li>Set the room in a circle and begin with a brief calming exercise.</li>
+                  <li>Phones on the floor, faces up, attention on each other.</li>
+                  <li>Use the “Broncos” moment as a bridge into the question of where men place energy and excitement.</li>
+                  <li>Discuss how Jesus taught real people in real places without waiting for perfection.</li>
+                  <li>Invite the quorum to name burdens men carry silently and gifts they bury.</li>
+                  <li>Teach that priesthood power grows through action, humility, and trying.</li>
+                  <li>Close with the ripple image: one small priesthood act can bless generations.</li>
                 </ol>
               </div>
+              <div class="inner-card">
+                <h4>Questions for the Circle</h4>
+                <ul>
+                  <li>What part of your spiritual life gets pushed aside by technology?</li>
+                  <li>Why do men hide instead of opening up?</li>
+                  <li>If Christ walked into the room right now, what would He want this quorum to become?</li>
+                  <li>What wisdom do younger men need from older men?</li>
+                  <li>What one small spiritual action would change your week?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
 
-              <div>
-                <h4>Scriptures</h4>
-                <div class="scriptures">
-                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/3?lang=eng" target="_blank">Abraham 3:24–25</a>
-                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12?lang=eng" target="_blank">Ether 12:6–7</a>
-                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/5?lang=eng" target="_blank">Helaman 5:12</a>
-                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–9</a>
-                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121?lang=eng" target="_blank">Doctrine and Covenants 121:7–8</a>
-                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/5?lang=eng" target="_blank">Romans 5:3–5</a>
+        <article class="card lesson-section" id="barcellos">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">December 14, 2025</p>
+              <h2>The Lord Looketh on the Heart</h2>
+              <p class="lesson-subtitle">Ronald M. Barcellos · A lesson centered on quiet miracles, real connection, and how Christ works through ordinary moments.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/14barcellos?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-1050-ronald-m-barcellos?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Teaching Notes</h4>
+                <ul>
+                  <li>Start with a clean, disarming opening that shifts attention away from the teacher and onto Christ.</li>
+                  <li>Frame the lesson around quiet ministering, human connection, and the Lord working in ordinary moments.</li>
+                  <li>Use the story only as a bridge to doctrine, not as the center of the lesson.</li>
+                </ul>
+              </div>
+              <div class="inner-card">
+                <h4>Suggested Opening</h4>
+                <div class="quote">This lesson isn’t about me. It’s about recognizing how Christ works with all of us.</div>
+              </div>
+              <div class="inner-card">
+                <h4>Related Reading</h4>
+                <p>A Christmas-season Substack story about unexpected connection, laughter, healing, and being reminded that the Lord still reaches His children quietly through ordinary people.</p>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Structure</h4>
+                <ol>
+                  <li>God works quietly through ordinary people.</li>
+                  <li>Presence is a form of ministering.</li>
+                  <li>Our mission is not over just because life becomes painful or difficult.</li>
+                  <li>The Savior still heals hearts through connection, kindness, and quiet moments of grace.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Discussion Questions</h4>
+                <ul>
+                  <li>When have you felt the Lord speak softly instead of dramatically?</li>
+                  <li>Who in your life needs your presence more than your advice?</li>
+                  <li>How do we sometimes decide too early that our season of usefulness is over?</li>
+                  <li>What quiet form of healing has the Savior given you that was not physical, but still real?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="rasband">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">December 28, 2025</p>
+              <h2>The Family Proclamation—Words from God</h2>
+              <p class="lesson-subtitle">Ronald A. Rasband · A family-centered lesson on revelation, identity, discouragement, engagement, and the work of priesthood in real homes.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/21rasband?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-2010-ronald-a-rasband?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Core Scriptures</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/ot/gen/1?lang=eng" target="_blank">Genesis 1:27</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/2-cor/12?lang=eng" target="_blank">2 Corinthians 12:9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/john/5?lang=eng" target="_blank">John 5:8–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/philip/4?lang=eng" target="_blank">Philippians 4:13</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/50?lang=eng" target="_blank">Doctrine and Covenants 50:24</a>
+              </div>
+              <div class="inner-card">
+                <h4>Anchor Truth</h4>
+                <div class="quote">The Family Proclamation is not a checklist for perfect people. It is God’s rescue plan for families led by imperfect men who keep showing up.</div>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
+                <ol>
+                  <li>Set confidentiality and trust as part of quorum culture.</li>
+                  <li>Anchor the lesson in Elder Rasband’s teaching that the proclamation is revelation.</li>
+                  <li>Ask what makes revealed family doctrine hard to live in real life.</li>
+                  <li>Discuss discouragement, exhaustion, and mental strain without shame.</li>
+                  <li>Teach that diagnosis may explain pain, but it must not replace eternal identity.</li>
+                  <li>Invite one act of engagement this week: prayer, service, conversation, or re-connection.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Discussion Questions</h4>
+                <ul>
+                  <li>What does it mean to you personally that the proclamation contains words from God?</li>
+                  <li>What makes it hard to live revealed family doctrine in daily life?</li>
+                  <li>How does discouragement show up in ordinary family patterns?</li>
+                  <li>What one act this week would interrupt isolation in your home?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="jackson">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">January 11, 2026</p>
+              <h2>Remembering the Sheep</h2>
+              <p class="lesson-subtitle">William K. Jackson · Brotherhood, presence, shepherding, and the power of personal connection in a distracted age.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/34jackson?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-3040-william-k-jackson?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Scripture Study</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/6?lang=eng" target="_blank">Moroni 6:4–5</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/7?lang=eng" target="_blank">Moroni 7:45–47</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/17?lang=eng" target="_blank">3 Nephi 17:7–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/18?lang=eng" target="_blank">3 Nephi 18:31–32</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/15?lang=eng" target="_blank">Luke 15:4–7</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/john/10?lang=eng" target="_blank">John 10:14–15</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/james/5?lang=eng" target="_blank">James 5:16</a>
+              </div>
+              <div class="inner-card">
+                <h4>Weekly Challenge</h4>
+                <p>Write down one person you feel prompted to shepherd better, and then name one face-to-face action you will take this week.</p>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
+                <ol>
+                  <li>Open with the difference between checking boxes and treating people like souls.</li>
+                  <li>Compare Moroni’s church culture with modern busy and distracted life.</li>
+                  <li>Teach that Christ did not lead from a distance; He led through relationships.</li>
+                  <li>Contrast community built on presence with community built on isolation and scrolling.</li>
+                  <li>Use the shepherd passages to emphasize movement, initiative, and staying with the one.</li>
+                  <li>Close with personal action instead of abstract agreement.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Questions for the Quorum</h4>
+                <ul>
+                  <li>What does it really mean to know your sheep?</li>
+                  <li>Does faster always mean better when it comes to people?</li>
+                  <li>What happens when charity is missing and comparison grows?</li>
+                  <li>What effort does the shepherd make for the one?</li>
+                  <li>Why does healing often require connection?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="andersen">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">January 25, 2026</p>
+              <h2>The Atoning Love of Jesus Christ</h2>
+              <p class="lesson-subtitle">Neil L. Andersen · Repentance, healing, radical honesty, drift, family confidence, and the Savior’s grace in real life.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/35andersen?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-3050-neil-l-andersen?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Scripture Study</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/27?lang=eng" target="_blank">Mosiah 27</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/ot/isa/1?lang=eng" target="_blank">Isaiah 1:18</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/enos/1?lang=eng" target="_blank">Enos 1:2–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/58?lang=eng" target="_blank">Doctrine and Covenants 58:42–43</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/17?lang=eng" target="_blank">Alma 17:2–3</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/9?lang=eng" target="_blank">3 Nephi 9:13</a>
+              </div>
+              <div class="inner-card">
+                <h4>Strong Line</h4>
+                <div class="quote">Nothing on a screen is worth losing our light.</div>
+              </div>
+              <div class="inner-card">
+                <h4>Buddy Check</h4>
+                <p>Each man chooses one person to serve this week and one buddy for a midweek text or check-in.</p>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
+                <ol>
+                  <li>Frame repentance as a heavenly tutorial rather than a courtroom.</li>
+                  <li>Use check-in rounds to open the circle with honesty and without pressure.</li>
+                  <li>Discuss complete honesty with God, self, and priesthood leaders.</li>
+                  <li>Teach safe, trusted priesthood leadership in the home.</li>
+                  <li>Address digital drift, quiet habits, and things that slowly take light from families.</li>
+                  <li>Testify that the Savior heals both the sinner who returns and the wounded who have been hurt by others.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Questions for Discussion</h4>
+                <ul>
+                  <li>How does calling repentance a tutorial change your willingness to be honest?</li>
+                  <li>What weight could honesty help you let go of?</li>
+                  <li>How can fathers and husbands become safe harbors in a digital age?</li>
+                  <li>How do we stay faithful in the “middle part” when relief comes slowly?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="holland">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">February 8, 2026</p>
+              <h2>And Now I See</h2>
+              <p class="lesson-subtitle">Jeffrey R. Holland · Testimony as lived evidence, small and simple discipleship, priesthood leadership through love, and the power of simply showing up.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/41holland?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-4010-jeffrey-r-holland?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Scripture Study</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/john/9?lang=eng" target="_blank">John 9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/ot/josh/24?lang=eng" target="_blank">Joshua 24:14–15</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121?lang=eng" target="_blank">Doctrine and Covenants 121:41–45</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/37?lang=eng" target="_blank">Alma 37:6–7</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/9?lang=eng" target="_blank">Matthew 9:35–36</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/5?lang=eng" target="_blank">Matthew 5:14–16</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84?lang=eng" target="_blank">Doctrine and Covenants 84:88</a>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
+                <ol>
+                  <li>Set the tone: this quorum is not about impressing anyone.</li>
+                  <li>Use Elder Holland’s title to explore what it means to say, “Now I see.”</li>
+                  <li>Teach from John 9 that testimony is lived evidence, not argument.</li>
+                  <li>Use Alma 37 to show that miracles often arrive through small and simple means.</li>
+                  <li>Bear witness that faith often steadies men long before it explains everything.</li>
+                  <li>Close by asking who needs us to truly see them this week.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Questions for Discussion</h4>
+                <ul>
+                  <li>What does “I see” mean to you spiritually?</li>
+                  <li>If someone watched your life this week, what evidence would they see of Christ?</li>
+                  <li>What small and simple act mattered most in your life?</li>
+                  <li>What does real priesthood leadership look like at home?</li>
+                  <li>Who needs you to really see them this week?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="johnson">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">February 22, 2026</p>
+              <h2>The Power of Ministering to the One</h2>
+              <p class="lesson-subtitle">Peter M. Johnson · Ministering, real contact, modern tools, real presence, and leading souls toward Jesus Christ and the house of the Lord.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/44johnson?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-4040-peter-m-johnson?lang=eng" target="_blank">Watch Video</a>
+              <a class="button-light" href="https://www.youtube.com/watch?v=TGykri3eKtc&t=1s" target="_blank">Related Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Scripture Study</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/luke/15?lang=eng" target="_blank">Luke 15:4–7</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/john/4?lang=eng" target="_blank">John 4:7–14</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/3-ne/11?lang=eng" target="_blank">3 Nephi 11:14–15</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/5?lang=eng" target="_blank">Helaman 5:12</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/20?lang=eng" target="_blank">Doctrine and Covenants 20:53–55</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/6?lang=eng" target="_blank">Doctrine and Covenants 6:21–23</a>
+              </div>
+              <div class="inner-card">
+                <h4>Memorable Lines</h4>
+                <div class="quote">Technology didn’t weaken ministering. Comfort did.</div>
+                <div class="quote">A text can open a door. But it can’t replace walking through it.</div>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
+                <ol>
+                  <li>Set the quorum as a brotherhood where every voice matters.</li>
+                  <li>Ask who “the one” is and invite men to remember what it feels like to be unseen.</li>
+                  <li>Use a simple round-the-circle answer so every man speaks at least once.</li>
+                  <li>Teach that ministering is not a checked box, but a relationship that leads toward Christ.</li>
+                  <li>Use John 4 and the old home teaching clip to compare contact with real presence.</li>
+                  <li>Invite one act of contact this week that moves toward real relationship.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Discussion Questions</h4>
+                <ul>
+                  <li>Who comes to mind when you hear “the one”?</li>
+                  <li>What quality do you most appreciate in someone who has ministered to you?</li>
+                  <li>What happens when ministering becomes an assignment instead of a relationship?</li>
+                  <li>What makes ministering hard right now—and what would help you do it better?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="eyring">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">March 8, 2026</p>
+              <h2>Proved and Strengthened in Christ</h2>
+              <p class="lesson-subtitle">Henry B. Eyring · Eternal perspective, trials, brotherhood, Christ as foundation, and the Lord’s power to strengthen willing disciples.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/53eyring?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5030-henry-b-eyring?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="lesson-layout">
+            <div>
+              <div class="inner-card">
+                <h4>Scripture Study</h4>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/pgp/abr/3?lang=eng" target="_blank">Abraham 3:24–25</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12?lang=eng" target="_blank">Ether 12:6–7</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/hel/5?lang=eng" target="_blank">Helaman 5:12</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–9</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/121?lang=eng" target="_blank">Doctrine and Covenants 121:7–8</a>
+                <a class="pill" href="https://www.churchofjesuschrist.org/study/scriptures/nt/rom/5?lang=eng" target="_blank">Romans 5:3–5</a>
+              </div>
+              <div class="inner-card">
+                <h4>Opening Perspective</h4>
+                <p>Use eternal perspective as a frame: gifts can be refined through trial, beautiful things can come out of suffering, and men grow stronger when they see their lives in the larger plan of salvation.</p>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Lesson Flow</h4>
+                <ol>
+                  <li>Begin by asking what helps a group of men grow stronger while keeping Christ at the center.</li>
+                  <li>Teach from Abraham 3 that being proved is part of the plan from the beginning.</li>
+                  <li>Use Ether 12 to teach faith before the witness.</li>
+                  <li>Anchor the quorum on Helaman 5:12 and Christ as foundation.</li>
+                  <li>Invite a reflection pause: what is proving your faith right now?</li>
+                  <li>Show how trials can prepare disciples to comfort and strengthen others.</li>
+                  <li>Close by testifying that willing service matters more than polish or appearance.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Discussion Questions</h4>
+                <ul>
+                  <li>Why do you think proving is part of God’s plan instead of life simply being easy?</li>
+                  <li>Why does the witness often come after the trial?</li>
+                  <li>What does it mean in practical terms to build on Christ?</li>
+                  <li>How do our own trials prepare us to help other people later?</li>
+                  <li>How can difficult experiences eventually lead to hope?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="peacemakers">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">November 9, 2025</p>
+              <h2>Blessed Are the Peacemakers</h2>
+              <p class="lesson-subtitle">Gary E. Stevenson · Lesson page prepared with official conference links. Additional lesson notes can be added here when the missing teaching files are found.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/12stevenson?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-1030-gary-e-stevenson?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="inner-card">
+            <h4>Ready Placeholder</h4>
+            <p>This lesson page is ready for the missing files. For now, the quorum can prepare by reading or watching the official conference message before class.</p>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="bednar">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">March 22, 2026</p>
+              <h2>They Are Their Own Judges</h2>
+              <p class="lesson-subtitle">David A. Bednar · Upcoming lesson placeholder with official conference links.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/51bednar?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5010-david-a-bednar?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="inner-card">
+            <h4>Prepare Before Sunday</h4>
+            <p>Read the talk and watch the conference video before quorum. Come ready to share one insight, one question, or one practical takeaway for daily discipleship.</p>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="renlund">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">April 12, 2026</p>
+              <h2>Taking on the Name of Jesus Christ</h2>
+              <p class="lesson-subtitle">Dale G. Renlund · Upcoming lesson placeholder with official conference links.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/55renlund?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5050-dale-g-renlund?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="inner-card">
+            <h4>Prepare Before Sunday</h4>
+            <p>Read the talk and watch the conference video before quorum. Bring one thought on how remembering and identifying with Jesus Christ changes the way we live our covenants.</p>
+          </div>
+        </article>
+
+        <article class="card lesson-section" id="oaks">
+          <div class="lesson-top">
+            <div>
+              <p class="eyebrow">April 26, 2026</p>
+              <h2>The Family-Centered Gospel of Jesus Christ</h2>
+              <p class="lesson-subtitle">Dallin H. Oaks · Upcoming lesson placeholder with official conference links.</p>
+            </div>
+            <div class="button-row">
+              <a class="button" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/58oaks?lang=eng" target="_blank">Read Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5080-dallin-h-oaks?lang=eng" target="_blank">Watch Video</a>
+            </div>
+          </div>
+          <div class="inner-card">
+            <h4>Prepare Before Sunday</h4>
+            <p>Read the talk and watch the conference video before quorum. Consider what the family-centered nature of the gospel asks of husbands, fathers, sons, and priesthood holders today.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section" id="upcoming">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Upcoming Lessons</p>
+            <h2 class="section-title">Read and watch before class</h2>
+          </div>
+          <p class="section-note">A simple place to help the quorum prepare before Sunday meetings.</p>
+        </div>
+
+        <div class="upcoming-list">
+          <div class="upcoming-item">
+            <div class="date">March 22, 2026</div>
+            <h3>They Are Their Own Judges — David A. Bednar</h3>
+            <p>Prepare by reading the talk and watching the conference video before quorum.</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/51bednar?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5010-david-a-bednar?lang=eng" target="_blank">Video</a>
+            </div>
+          </div>
+          <div class="upcoming-item">
+            <div class="date">April 12, 2026</div>
+            <h3>Taking on the Name of Jesus Christ — Dale G. Renlund</h3>
+            <p>Review the official talk and video and come ready to discuss how covenant identity changes daily living.</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/55renlund?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5050-dale-g-renlund?lang=eng" target="_blank">Video</a>
+            </div>
+          </div>
+          <div class="upcoming-item">
+            <div class="date">April 26, 2026</div>
+            <h3>The Family-Centered Gospel of Jesus Christ — Dallin H. Oaks</h3>
+            <p>Read and watch before quorum so discussion can begin with shared preparation and stronger insights.</p>
+            <div class="button-row">
+              <a class="button-light" href="https://www.churchofjesuschrist.org/study/general-conference/2025/10/58oaks?lang=eng" target="_blank">Talk</a>
+              <a class="button-light" href="https://www.churchofjesuschrist.org/media/video/2025-10-5080-dallin-h-oaks?lang=eng" target="_blank">Video</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="mens-group">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Future Update</p>
+            <h2 class="section-title">Weekly Men’s Group proposal</h2>
+          </div>
+          <p class="section-note">An upcoming possibility for Wednesday-night follow-up discussion, brotherhood, and support outside of Sunday quorum.</p>
+        </div>
+
+        <div class="card">
+          <div class="grid-2">
+            <div>
+              <div class="inner-card">
+                <h4>Purpose</h4>
+                <p>A weekly place for men to talk honestly, support each other, and strengthen Christ-centered homes. The goal is brotherhood, not performance.</p>
+              </div>
+              <div class="inner-card">
+                <h4>Possible Focus Areas</h4>
+                <ul>
+                  <li>Faith at home and family leadership</li>
+                  <li>Technology drift and screen distraction</li>
+                  <li>Isolation, discouragement, and pressure carried in silence</li>
+                  <li>Brotherhood, practical service, and real conversation</li>
+                  <li>Helping fathers, husbands, and priesthood holders reconnect at home</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="inner-card">
+                <h4>Simple Framework</h4>
+                <ol>
+                  <li>Open with prayer and a short check-in round.</li>
+                  <li>Use a simple weekly prompt to get men talking.</li>
+                  <li>Keep the circle focused on real life, faith, and support.</li>
+                  <li>Use scriptures or a short Church-based framework as needed.</li>
+                  <li>Close with one practical action for the week.</li>
+                </ol>
+              </div>
+              <div class="inner-card">
+                <h4>Helpful Reference</h4>
+                <p>A related public discussion on technology, children, and focus can be found here:</p>
+                <div class="button-row">
+                  <a class="button-light" href="https://www.youtube.com/watch?v=niYR-CyXcSg" target="_blank">Watch Reference Clip</a>
                 </div>
               </div>
             </div>
-          </article>
-
-          <article class="card">
-            <h3 style="margin-bottom: 16px;">Full lesson schedule</h3>
-            <div class="lesson-columns">
-              <div>
-                <ol>
-                  <li><strong>November 9, 2025</strong> — Gary E. Stevenson — Blessed Are the Peacemakers</li>
-                  <li><strong>November 23, 2025</strong> — Dieter F. Uchtdorf — Do Your Part with All Your Heart</li>
-                  <li><strong>December 14, 2025</strong> — Ronald M. Barcellos — The Lord Looketh on the Heart</li>
-                  <li><strong>December 28, 2025</strong> — Ronald A. Rasband — The Family Proclamation—Words from God</li>
-                  <li><strong>January 11, 2026</strong> — William K. Jackson — Remembering the Sheep</li>
-                  <li><strong>January 25, 2026</strong> — Neil L. Andersen — The Atoning Love of Jesus Christ</li>
-                </ol>
-              </div>
-              <div>
-                <ol start="7">
-                  <li><strong>February 8, 2026</strong> — Jeffrey R. Holland — And Now I See</li>
-                  <li><strong>February 22, 2026</strong> — Peter M. Johnson — The Power of Ministering to the One</li>
-                  <li><strong>March 8, 2026</strong> — Henry B. Eyring — Proved and Strengthened in Christ</li>
-                  <li><strong>March 22, 2026</strong> — David A. Bednar — They Are Their Own Judges</li>
-                  <li><strong>April 12, 2026</strong> — Dale G. Renlund — Taking on the Name of Jesus Christ</li>
-                  <li><strong>April 26, 2026</strong> — Dallin H. Oaks — The Family-Centered Gospel of Jesus Christ</li>
-                </ol>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="scripture-index" class="card" style="margin-top: 32px;">
-        <p class="eyebrow">Study Tools</p>
-        <h2 class="section-title">Scripture index</h2>
-        <p>
-          This section gathers scripture study themes that support quorum lessons and personal gospel study.
-          It can also be expanded over time with conference talk references, handouts, and lesson notes.
-        </p>
-
-        <div class="topic-grid">
-          <div class="card"><h3>Jesus Christ</h3><p>Core passages and teachings centered on the Savior.</p></div>
-          <div class="card"><h3>Covenants</h3><p>Scriptures and teachings about promises, ordinances, and discipleship.</p></div>
-          <div class="card"><h3>Ministering</h3><p>Study helps for caring for individuals and families one by one.</p></div>
-          <div class="card"><h3>Priesthood Service</h3><p>Scriptures related to service, responsibility, and leadership in Christ.</p></div>
-          <div class="card"><h3>Faith</h3><p>Verses and teachings about trust, endurance, and spiritual growth.</p></div>
-          <div class="card"><h3>Charity</h3><p>References focused on love, unity, and the pure love of Christ.</p></div>
+          </div>
         </div>
       </section>
     </div>
@@ -342,7 +1124,7 @@
 
   <footer>
     <div class="container">
-      Cherry Creek Elders Quorum Lessons · Built as a teaching and study resource.
+      Cherry Creek Elders Quorum Lessons · Prepared as a teaching and study resource with lesson schedule, official conference talk links, scripture study links, and quorum teaching outlines.
     </div>
   </footer>
 </body>
