@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cherry Creek Elders Quorum Lessons</title>
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #1f3a5f;
+      --accent-light: #eaf0f7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 6px 0;
+    }
+
+    h1, h2, h3, h4 { margin: 0; }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 16px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 40px 0 60px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .section-title {
+      margin: 12px 0 20px;
+      font-size: 1.9rem;
+    }
+
+    .section-note {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .lesson-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .month {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .lesson-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    ol {
+      padding-left: 20px;
+      margin: 12px 0 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .scriptures {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #d9e3f0;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .lesson-columns,
+      .topic-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div>
+        <p class="eyebrow">Cherry Creek Ward</p>
+        <h1>Cherry Creek Elders Quorum Lessons</h1>
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#scripture-index">Scripture Index</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section id="overview" class="hero">
+        <div class="card">
+          <p class="eyebrow">Purpose</p>
+          <h2>A home base for elders quorum lessons, master lesson plans, and scriptures.</h2>
+          <p>
+            This site is built to help quorum members and leaders quickly find each lesson,
+            review the teaching plan, and study the scriptures connected to each message.
+          </p>
+          <p>
+            Replace the sample content below with your actual lessons, conference talks,
+            study notes, and discussion questions.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>What this site can include</h3>
+          <ul>
+            <li>Monthly or weekly elders quorum lessons</li>
+            <li>Master teaching plans for each lesson</li>
+            <li>Scripture references and links</li>
+            <li>Conference talks and supporting resources</li>
+            <li>Discussion questions and invitations to act</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="lessons">
+        <p class="eyebrow">Lesson Collection</p>
+        <h2 class="section-title">Featured lessons</h2>
+        <p class="section-note">These are sample entries. Swap them out with your real quorum lessons.</p>
+
+        <div class="lesson-grid">
+          <article class="card">
+            <div class="lesson-head">
+              <div>
+                <div class="month">January</div>
+                <h3>Faith in Jesus Christ</h3>
+                <p>Helping quorum members deepen trust in the Savior.</p>
+              </div>
+              <a class="button" href="#">Download Notes</a>
+            </div>
+
+            <div class="lesson-columns">
+              <div>
+                <h4>Master Lesson Plan</h4>
+                <ol>
+                  <li>Opening thought and welcome</li>
+                  <li>Purpose of the lesson</li>
+                  <li>Main teaching points</li>
+                  <li>Discussion questions</li>
+                  <li>Invitation to act during the week</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4>Scriptures</h4>
+                <div class="scriptures">
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/alma/32?lang=eng" target="_blank">Alma 32:21</a>
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/nt/heb/11?lang=eng" target="_blank">Hebrews 11:1</a>
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12?lang=eng" target="_blank">Ether 12:6</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="lesson-head">
+              <div>
+                <div class="month">February</div>
+                <h3>Strength Through Covenants</h3>
+                <p>How covenant living brings power, peace, and direction.</p>
+              </div>
+              <a class="button" href="#">Download Notes</a>
+            </div>
+
+            <div class="lesson-columns">
+              <div>
+                <h4>Master Lesson Plan</h4>
+                <ol>
+                  <li>Brief review from last lesson</li>
+                  <li>Introduce the core doctrine</li>
+                  <li>Share prophetic teaching</li>
+                  <li>Invite quorum discussion</li>
+                  <li>Close with a practical commitment</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4>Scriptures</h4>
+                <div class="scriptures">
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/84?lang=eng" target="_blank">Doctrine and Covenants 84:19–22</a>
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/18?lang=eng" target="_blank">Mosiah 18:8–10</a>
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/31?lang=eng" target="_blank">2 Nephi 31:19–20</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="lesson-head">
+              <div>
+                <div class="month">March</div>
+                <h3>Ministering Like the Savior</h3>
+                <p>Practical ways to bless families and individuals in need.</p>
+              </div>
+              <a class="button" href="#">Download Notes</a>
+            </div>
+
+            <div class="lesson-columns">
+              <div>
+                <h4>Master Lesson Plan</h4>
+                <ol>
+                  <li>Opening prayer and check-in</li>
+                  <li>Discuss Christlike ministering</li>
+                  <li>Share real-life application examples</li>
+                  <li>Discuss needs in the quorum</li>
+                  <li>End with assignments and invitations</li>
+                </ol>
+              </div>
+
+              <div>
+                <h4>Scriptures</h4>
+                <div class="scriptures">
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/bofm/mosiah/2?lang=eng" target="_blank">Mosiah 2:17</a>
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/25?lang=eng" target="_blank">Matthew 25:40</a>
+                  <a class="tag" href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/81?lang=eng" target="_blank">Doctrine and Covenants 81:5</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="scripture-index" class="card" style="margin-top: 32px;">
+        <p class="eyebrow">Study Tools</p>
+        <h2 class="section-title">Scripture index</h2>
+        <p>
+          You can turn this section into a master scripture library with links to scripture passages,
+          General Conference talks, Come, Follow Me references, and handouts for quorum members.
+        </p>
+
+        <div class="topic-grid">
+          <div class="card"><h3>Jesus Christ</h3><p>Add key references and notes here.</p></div>
+          <div class="card"><h3>Covenants</h3><p>Add key references and notes here.</p></div>
+          <div class="card"><h3>Ministering</h3><p>Add key references and notes here.</p></div>
+          <div class="card"><h3>Priesthood Service</h3><p>Add key references and notes here.</p></div>
+          <div class="card"><h3>Faith</h3><p>Add key references and notes here.</p></div>
+          <div class="card"><h3>Charity</h3><p>Add key references and notes here.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Cherry Creek Elders Quorum Lessons · Built as a teaching and study resource.
+    </div>
+  </footer>
+</body>
+</html>
